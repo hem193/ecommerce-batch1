@@ -170,7 +170,7 @@ export const resetPassword = asyncHandler(async (req, res) => {
     .update(resetToken)
     .digest("hex");
 
-  //User.findOne({emial:email})
+  //User.findOne({email:email})
   const user = await User.findOne({
     forgotPasswordToken: resetPasswordToken,
     forgotPasswordExpiry: { $gt: Date.now() },
